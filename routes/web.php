@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeDashboardController;
+use App\Http\Controllers\KalenderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeDashboardController::class, 'index'])->name('dashboard.home.index');
+
+Route::get('/dashboard/kalender', [KalenderController::class, 'index'])->name('dashboard.kalender.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
